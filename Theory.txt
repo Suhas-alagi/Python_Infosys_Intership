@@ -266,3 +266,6 @@ Let’s continue from there:
 
 
 ---
+
+
+#variable declaration rules in python
