@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Air Quality Data Explorer</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>Air Quality Data Explorer</h1>
+    <h2>Time Series</h2>
+    <img src="/static/pollutant_avg_plot.png" width="600">
+    <h2>Distribution Analysis</h2>
+    <img src="/static/distribution_plot.png" width="400">
+    <h2>Pollutant Correlations</h2>
+    <img src="/static/correlation_plot.png" width="400">
+    <h2>Statistical Summary</h2>
+    <table border="1">
+        <tr>
+            <th></th>
+            {% for col in summary.columns %}
+            <th>{{ col }}</th>
+            {% endfor %}
+        </tr>
+        {% for idx, row in summary.iterrows() %}
+        <tr>
+            <td>{{ idx }}</td>
+            {% for col in summary.columns %}
+            <td>{{ row[col] }}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
